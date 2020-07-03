@@ -97,7 +97,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }
         
-        //present(myPhotoTaker, animated: true, completion: nil)
+        
         
     }
     
