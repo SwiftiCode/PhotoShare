@@ -7,12 +7,14 @@
 //
 
 import UIKit
-import Social
+import FacebookCore
+import FacebookShare
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SharingDelegate {
+    
     // MARK: Properties
     @IBOutlet weak var myPhotoView: UIImageView!
+
     
     // MARK: Default Template
     override func viewDidLoad() {
@@ -37,6 +39,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: Share delegate
+    func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
+        print("share ok")
+    }
+    
+    func sharer(_ sharer: Sharing, didFailWithError error: Error) {
+        print("share error")
+    }
+    
+    func sharerDidCancel(_ sharer: Sharing) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // MARK: IBAction
     @IBAction func takePhoto(_ sender: UIBarButtonItem) {
@@ -91,7 +105,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // prepare for FB share
         let fbPhoto = SharePhoto()
-        fbPhoto.image = photoImageView.image
+        fbPhoto.image = myPhotoView.image
         fbPhoto.isUserGenerated = true
         
         // FB Content

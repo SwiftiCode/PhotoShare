@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20311DB124AFAF20004BBE44 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 20311DB024AFAF20004BBE44 /* FacebookCore */; };
+		20311DB324AFAF20004BBE44 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 20311DB224AFAF20004BBE44 /* FacebookLogin */; };
+		20311DB524AFAF20004BBE44 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 20311DB424AFAF20004BBE44 /* FacebookShare */; };
 		A0410FC11C80B139006F65C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0410FC01C80B139006F65C4 /* AppDelegate.swift */; };
 		A0410FC31C80B139006F65C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0410FC21C80B139006F65C4 /* ViewController.swift */; };
 		A0410FC61C80B139006F65C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0410FC41C80B139006F65C4 /* Main.storyboard */; };
@@ -43,6 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20311DB324AFAF20004BBE44 /* FacebookLogin in Frameworks */,
+				20311DB124AFAF20004BBE44 /* FacebookCore in Frameworks */,
+				20311DB524AFAF20004BBE44 /* FacebookShare in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +118,11 @@
 			dependencies = (
 			);
 			name = PhotoShare;
+			packageProductDependencies = (
+				20311DB024AFAF20004BBE44 /* FacebookCore */,
+				20311DB224AFAF20004BBE44 /* FacebookLogin */,
+				20311DB424AFAF20004BBE44 /* FacebookShare */,
+			);
 			productName = PhotoShare;
 			productReference = A0410FBD1C80B139006F65C4 /* PhotoShare.app */;
 			productType = "com.apple.product-type.application";
@@ -166,6 +177,9 @@
 				Base,
 			);
 			mainGroup = A0410FB41C80B139006F65C4;
+			packageReferences = (
+				20311DAF24AFAF20004BBE44 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = A0410FBE1C80B139006F65C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -291,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -341,10 +355,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -356,7 +371,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VDF27GCNGF;
 				INFOPLIST_FILE = PhotoShare/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = SwiftiCode.SNS3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -370,7 +388,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VDF27GCNGF;
 				INFOPLIST_FILE = PhotoShare/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = SwiftiCode.SNS3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -384,7 +405,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = VDF27GCNGF;
 				INFOPLIST_FILE = PhotoShareTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sg.tay.thomas.PhotoShareTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -399,7 +424,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = VDF27GCNGF;
 				INFOPLIST_FILE = PhotoShareTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sg.tay.thomas.PhotoShareTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -439,6 +468,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20311DAF24AFAF20004BBE44 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20311DB024AFAF20004BBE44 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20311DAF24AFAF20004BBE44 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		20311DB224AFAF20004BBE44 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20311DAF24AFAF20004BBE44 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		20311DB424AFAF20004BBE44 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20311DAF24AFAF20004BBE44 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0410FB51C80B139006F65C4 /* Project object */;
 }
