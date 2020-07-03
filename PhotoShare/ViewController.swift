@@ -89,59 +89,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func sharePhoto(_ sender: UIBarButtonItem) {
         
-        let isFacebookServiceAvailable = SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook)
-        let isTwitterServiceAvailable = SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)
-        var mySocialShare: SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        // prepare for FB share
+        let fbPhoto = SharePhoto()
+        fbPhoto.image = photoImageView.image
+        fbPhoto.isUserGenerated = true
         
-        if isFacebookServiceAvailable || isTwitterServiceAvailable {
-            
-            if isFacebookServiceAvailable && isTwitterServiceAvailable {
-                
-                let myChoiceAlert = UIAlertController(title: "Choose Social Service", message: "Choose which service to share:", preferredStyle: .actionSheet)
-                let myChoiceAlertActionFacebook = UIAlertAction(title: "Facebook", style: .default) { action -> Void in
-                    mySocialShare = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                    mySocialShare.add(self.myPhotoView.image)
-                    self.present(mySocialShare, animated: true, completion: nil)
-                }
-                let myChoiceAlertActionTwitter = UIAlertAction(title: "Twitter", style: .default) { action -> Void in
-                    mySocialShare = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                    mySocialShare.add(self.myPhotoView.image)
-                    self.present(mySocialShare, animated: true, completion: nil)
-                }
-                
-                myChoiceAlert.addAction(myChoiceAlertActionFacebook)
-                myChoiceAlert.addAction(myChoiceAlertActionTwitter)
-                
-                present(myChoiceAlert, animated: true, completion: nil)
-            }
-            
-            if isFacebookServiceAvailable && !isTwitterServiceAvailable {
-                
-                mySocialShare = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                mySocialShare.add(self.myPhotoView.image)
-                    
-                
-                present(mySocialShare, animated: true, completion: nil)
-            }
-            
-            if !isFacebookServiceAvailable && isTwitterServiceAvailable {
-                
-                mySocialShare = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                mySocialShare.add(self.myPhotoView.image)
-                    
-                present(mySocialShare, animated: true, completion: nil)
-            }
-
-
-            
+        // FB Content
+        let content = SharePhotoContent()
+        content.photos = [fbPhoto]
+        
+        // FB Dialog
+        let dialog = ShareDialog(fromViewController: self, content: content, delegate: self)
+        dialog.mode = .native
+        if dialog.canShow {
+            dialog.show()
         } else {
-            
-            let myAlert = UIAlertController(title: "Alert!", message: "No Facebook or Twitter Setup", preferredStyle: .alert)
-            let myAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            
-            myAlert.addAction(myAlertAction)
-            
-            present(myAlert, animated: true, completion: nil)
+            print("error show dialog")
         }
         
         
