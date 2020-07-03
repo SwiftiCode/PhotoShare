@@ -49,6 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let myPhotoAlert = UIAlertController(title: "Photo Source", message: "Choose photo source:", preferredStyle: .actionSheet)
             let useCamera = UIAlertAction(title: "Camera", style: .default) { action -> Void in
                 myPhotoTaker.sourceType = .camera
+               
                 if UIImagePickerController.isCameraDeviceAvailable(.rear) {
                     
                     myPhotoTaker.cameraDevice = .rear
@@ -61,6 +62,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 self.present(myPhotoTaker, animated: true, completion: nil)
             }
+            
             let usePhotoLibrary = UIAlertAction(title: "Photo Library", style: .default) { action -> Void in
                 myPhotoTaker.sourceType = .photoLibrary
                 self.present(myPhotoTaker, animated: true, completion: nil)
@@ -77,10 +79,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             
             myPhotoTaker.sourceType = .photoLibrary
+            present(myPhotoTaker, animated: true, completion: nil)
             
         }
         
-        present(myPhotoTaker, animated: true, completion: nil)
+        //present(myPhotoTaker, animated: true, completion: nil)
         
     }
     

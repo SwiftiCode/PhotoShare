@@ -357,7 +357,7 @@
 				DEVELOPMENT_TEAM = VDF27GCNGF;
 				INFOPLIST_FILE = PhotoShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Swifticode.SNS;
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftiCode.SNS3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -371,7 +371,7 @@
 				DEVELOPMENT_TEAM = VDF27GCNGF;
 				INFOPLIST_FILE = PhotoShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Swifticode.SNS;
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftiCode.SNS3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
